@@ -15,5 +15,14 @@ pipeline {
                 }
             }
         }
+        
+        stage('Run Build Image') {
+            steps {
+                script {
+                    // Run the built Docker image
+                    sh 'docker run -d -p 8080:80 demo_jenkins_app'
+                }
+            }
+        }
     }
 }
